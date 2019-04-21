@@ -1,38 +1,52 @@
 "use strict";
 
+var program = {
+    movieList: [],
 
-
-var movies = {
-    movieList:[],
     addToList : function(){
-        var movie1 = new Movie($("#title").text(), $("#rating").text());
+        const movie1 = new Movie($("#title").val(), $("#rating").val() );
         if(movie1.validateInput())
-            {
-
-                this.movieList.push(movie1.toString());
-
-            }
+        {
+            program.movieList.push(movie1);
+            $("#title").val("");
+            $("#rating").val("");
+            $("#message").text("Movie added successfully!");
+            $("#message").css("color", "green");
+            $("#title").focus();
+        }
         else
-            {
-
-               $("#message").text("the data was not good.");
-            }
-
+        {
+            $("#message").text("Entry invalid.");
+            $("#message").css("color", "red");
+        }
     },
 
     showList: function(){
-        for(let i = 0; i < this.movieList.length; i++) 
-            {
-                $("#second").text(this.movieList[i] + "<br/>");
+        this.movieList.sort(program.sortByRating);
+        $.each(this.movieList, function (key, value) {
+            $("#second").append("<li>"+ value.toString() + "</li>");
+        })
+    },
 
-            }
 
-    }
- 
+    //This will sort your array
+    sortByRating: function (obj1, obj2){ 
+        return obj2.rating - obj1.rating;
+    },
 };
 
 $(function(){
-    $("#submit").on("click",movies.addToList());
-    $("#showMoive").on("click",movies.showList());
+    $("#submit").on("click", function() { program.addToList(); } );
+    $("#showMoive").on("click",function() { program.showList(); } );
+
+    $(document).keypress(function(e){
+        if (e.which == 13){
+            $("#submit").click();
+        }
+    });
+
+    $("#title").focus();
 });
+
+
 

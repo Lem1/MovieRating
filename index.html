@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Movie rating site</title>
+<title>My Movies</title>
 <link rel="stylesheet" type="text/css" href="moiveRating.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="movie.js"></script>
@@ -10,19 +10,23 @@
 </head>
 <body>
 <div id="first">
-    <h1>Enter List of Movies and Rate</h1>
-    <label id="lblTitle">Movie Title</label>
-    <input type="text" id="title" ><br/><br/>
-    <label id="lblRate">Rating</label>
-    <input type="text" id="rating" ><br/><br/>
+    <h2>Add New Movie:</h2>
+    <label id="lblTitle">Movie Title:  </label>
+    <input type="text" id="title" >
+    <br/><br/>
+    <label id="lblRate">Rating:  </label>
+    <input type="text" placeholder="(Worst) 1 - 5 (Best)" id="rating" >
+    <br/><br/>
     <label id="message"></label>
-    <button id="submit" type="button" > Add Movie</button><br/><br/>
+    <br/><br/>
+    <button id="submit" type="button" > Add Movie</button>
+    <br/><br/><br/>
     <button id="showMoive" type="button">Show movies</button><br/>
 </div>
 <div id="second">
-    <lt>
-        <li></li>
-    </lt>
+    <h2>My Movies and Ratings:</h2>
+    <ul>
+    </ul>
 </div>
 </body>
 
