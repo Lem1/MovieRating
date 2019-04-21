@@ -23,8 +23,8 @@ var program = {
             else
             {
                 // show fail message
-                $("#message").text("Entry invalid.");
-                $("#message").css("color", "red");
+                $("#message").text("");
+                alert("Entry invalid!");
             }
         }   
     },
