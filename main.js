@@ -4,27 +4,30 @@ var program = {
     movieList: [],
 
     addToList : function(){
-        const movie1 = new Movie($("#title").val(), $("#rating").val() );
-        if(movie1.validateInput())
-        {
-            program.movieList.push(movie1);
-            $("#title").val("");
-            $("#rating").val("");
-            $("#message").text("Movie added successfully!");
-            $("#message").css("color", "green");
-            $("#title").focus();
-        }
-        else
-        {
-            $("#message").text("Entry invalid.");
-            $("#message").css("color", "red");
-        }
+        if ($("#title").val() !== null && $("#rating").val() !== null) {
+            const movie1 = new Movie($("#title").val(), $("#rating").val() );
+            if(movie1.validateInput())
+            {
+                program.movieList.push(movie1);
+                $("#title").val("");
+                $("#rating").val("");
+                $("#message").text("Movie added successfully!");
+                $("#message").css("color", "green");
+                $("#title").focus();
+            }
+            else
+            {
+                $("#message").text("Entry invalid.");
+                $("#message").css("color", "red");
+            }
+        }   
     },
 
     showList: function(){
+        $("#list").empty(); 
         this.movieList.sort(program.sortByRating);
         $.each(this.movieList, function (key, value) {
-            $("#second").append("<li>"+ value.toString() + "</li>");
+            $("#list").append("<li>"+ value.toString() + "</li>");
         })
     },
 
@@ -45,6 +48,7 @@ $(function(){
         }
     });
 
+    program.movieList = [];
     $("#title").focus();
 });
 
