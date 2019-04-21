@@ -1,7 +1,27 @@
 body {
-    background-color: aqua;
+    background-color: lightgray;
     font-size: 16px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#wrapper {
+    width: 40%;
+    margin: 40px auto;
+    background-color: lightcoral;
+    border: 1px solid darkblue;
+    padding: 0 30px 30px 30px;
+}
+
+h1{
+    text-align: center;
+}
+
+#title {
+    width: 300px;
+}
+
+#rating {
+    width: 130px;
 }
 
 button {
