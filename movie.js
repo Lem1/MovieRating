@@ -3,6 +3,8 @@
 var Movie = function(pMovie, pRating){
     this.title = pMovie;
     this.rating = pRating;
+
+    // validate input fields
     this.validateInput = function(){
         let myRating = parseInt(this.rating);
         if ( this.title === "" ) {
@@ -15,6 +17,8 @@ var Movie = function(pMovie, pRating){
             return true;
         }
     };
+
+    // set default movie display format
     this.toString = function(){
         return  this.title + "  (" + this.rating + " stars)";
     };
